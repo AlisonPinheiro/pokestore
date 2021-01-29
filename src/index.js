@@ -1,17 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import ReactDOM, { render } from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Header from './subtemplates/Header';
+import Footer from './subtemplates/Footer';
+import GlobalStyles from './GlobalStyles';
+const $Header = document.getElementById('header');
+const $Footer = document.getElementById('footer');
+
+render(<Header />, $Header )
+render(<Footer />, $Footer )
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyles />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

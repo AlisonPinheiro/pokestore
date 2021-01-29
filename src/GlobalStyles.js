@@ -19,6 +19,13 @@ const GlobalStyles = createGlobalStyle `
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
+    font-family: 'Oxanium', cursive;
+    font-weight: 300;
+  }
+
+  header{
+    -webkit-box-shadow: 0 0 20px 0 rgb(0 0 0 / 13%);
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 13%);
   }
 
   h1,
@@ -40,12 +47,19 @@ const GlobalStyles = createGlobalStyle `
     list-style: none;
   }
 
+  main{
+    flex: 1 1 auto;
+    width: 100%;
+    z-index: 1;
+  }
+
   main,
   section,
   fieldset,
   li {
     display: block;
   }
+
 
   button {
     overflow: visible;

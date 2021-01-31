@@ -4,6 +4,10 @@ import App from './App';
 import Header from './subtemplates/Header';
 import Footer from './subtemplates/Footer';
 import GlobalStyles from './GlobalStyles';
+import { Provider } from 'react-redux';
+
+import store from "./store";
+
 const $Header = document.getElementById('header');
 const $Footer = document.getElementById('footer');
 
@@ -13,7 +17,9 @@ render(<Footer />, $Footer )
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

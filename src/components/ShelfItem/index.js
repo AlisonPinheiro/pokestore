@@ -1,0 +1,24 @@
+import React, { useEffect, useState } from "react";
+import { generateRandomPrice } from "../../helper/generateRandomPrice";
+
+import * as S from './styled';
+
+export default function ShelfItem (props) {
+  const { name } = props;
+  const [price, setPrice] = useState();
+  const imgSrc = `https://img.pokemondb.net/artwork/${name}.jpg`
+
+  useEffect(() => {
+    setPrice(generateRandomPrice());
+  }, []);
+
+    return (
+      <S.ShelfItem className="ShelfItem">
+
+        <img src={imgSrc} alt={name} />
+        <h3>{name}</h3>
+        <span>{price}</span>
+        <button>comprar </button>
+      </S.ShelfItem>
+    );
+};

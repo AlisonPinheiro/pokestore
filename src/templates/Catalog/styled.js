@@ -10,3 +10,6 @@ export const CatalogNav = styled.div `
   justify-content:space-between;
   padding:0 10px;
 `
+export const Shelf = styled.div `
+  display:flex;
+`

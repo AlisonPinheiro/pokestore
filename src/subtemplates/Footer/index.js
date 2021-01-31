@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-export default class Footer extends Component {
-  render() {
-    return (
+export default function Footer() {
+
+  return (
       <h6>copyright</h6>
-    )
-  }
+  )
+
 }
 

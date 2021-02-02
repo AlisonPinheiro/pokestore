@@ -2,25 +2,23 @@ import { createStore } from "redux";
 
 const INITIAL_STATE = {
   theme: {},
-  errorApp: "false",
-  errorAppMessage: "",
-  pokemonLoading: "true",
   pokemonByType: [],
   pokemonFilteredBySearch: [],
   cartIsEmpty: true,
-  cartProducts: [],
-  isModalOpened: false,
-  numberCard: "",
-  rememberNumberCard: false,
+  cartProducts: JSON.parse(localStorage.getItem("Products")) || [],
+  productNotice: [],
+
 };
+
 function course(state = INITIAL_STATE, action) {
+  // console.log(action);
+  // console.log(state);
   switch (action.type) {
     case "SET_THEME":
       return {
         ...state,
         theme: action.payload,
       };
-
     case "SET_POKEMON_DATA_BY_TYPE":
       return {
         ...state,
@@ -31,26 +29,6 @@ function course(state = INITIAL_STATE, action) {
         ...state,
         pokemonFilteredBySearch: action.payload,
       };
-    case "SET_POKEMON_LOADING":
-      return {
-        ...state,
-        pokemonLoading: action.payload,
-      };
-    case "SET_ERROR_APP":
-      return {
-        ...state,
-        errorApp: action.payload,
-      };
-    case "SET_ERROR_APP_MESSAGE":
-      return {
-        ...state,
-        errorAppMessage: action.payload,
-      };
-    case "SET_CART_IS_EMPTY":
-      return {
-        ...state,
-        cartIsEmpty: action.payload,
-      };
     case "SET_CART_EMPTY":
       return {
         ...state,
@@ -60,22 +38,24 @@ function course(state = INITIAL_STATE, action) {
       return {
         ...state,
         cartProducts: [...state.cartProducts, action.payload],
+        productNotice: [action.payload],
+        cartIsEmpty: false
       };
-    case "SET_MODAL_OPENED":
+
+    case "REMOVE_CART_PRODUCT":
+      const productId = action.payload.productId;
+      const productIndex = state.cartProducts.findIndex((product)=>{
+        return product.productId === productId
+      })
+
+      const newList = state.cartProducts;
+      newList.splice(productIndex, 1)
+      const cartEmpty = newList.length === 0 ? true : false;
       return {
         ...state,
-        isModalOpened: action.payload,
-      };
-    case "SET_NUMBER_CARD":
-      return {
-        ...state,
-        numberCard: action.payload,
-      };
-    case "SET_REMEMBER_NUMBER_CARD":
-      return {
-        ...state,
-        rememberNumberCard: action.payload,
-      };
+        cartIsEmpty: cartEmpty,
+        cartProducts: [...state.cartProducts]
+      }
 
     default:
       return state;

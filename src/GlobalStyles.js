@@ -21,11 +21,18 @@ const GlobalStyles = createGlobalStyle `
     -webkit-overflow-scrolling: touch;
     font-family: 'Oxanium', cursive;
     font-weight: 300;
+    &.minicart-is-open{
+      overflow: hidden;
+    }
   }
 
   header{
+    position:fixed;
+    width:100%;
+    z-index:6;
     -webkit-box-shadow: 0 0 20px 0 rgb(0 0 0 / 13%);
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 13%);
+    background:white;
   }
 
   h1,
@@ -51,6 +58,7 @@ const GlobalStyles = createGlobalStyle `
     flex: 1 1 auto;
     width: 100%;
     z-index: 1;
+    padding-top:70px;
   }
 
   main,

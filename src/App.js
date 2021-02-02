@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { MiniCart } from './components/MiniCart';
+import { PurchaseNotice } from './components/PurchaseNotice';
 // import { useSelector } from "react-redux";
 import SearchPokemon from './services/searchPokemon';
 import SetTheme from "./services/setTheme";
@@ -13,6 +15,8 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <PurchaseNotice />
+      <MiniCart />
       <Switch>
         <Route exact  path="/grass" component={Catalog}>
         </Route>

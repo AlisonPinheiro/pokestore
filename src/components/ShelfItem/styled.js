@@ -5,6 +5,10 @@ export const ShelfItem = styled.div `
   display:inline-block;
   padding:20px;
   text-align:center;
+  transition: 0.3s;
+  .grid--one &{
+    max-width: 100%;
+  }
   h3{
     padding-top: 10px ;
     text-transform:capitalize;
